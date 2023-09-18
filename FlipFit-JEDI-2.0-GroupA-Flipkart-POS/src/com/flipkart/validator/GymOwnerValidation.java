@@ -9,8 +9,8 @@ import com.flipkart.exception.InvalidAadharException;
  * @author kshitij.gupta1
  */
 public class GymOwnerValidation {
-	private static Integer aadhar;
-	public GymOwnerValidation(Integer aadhar) {
+	private static String aadhar;
+	public GymOwnerValidation(String aadhar) {
 		GymOwnerValidation.aadhar = aadhar;
 	}
 	

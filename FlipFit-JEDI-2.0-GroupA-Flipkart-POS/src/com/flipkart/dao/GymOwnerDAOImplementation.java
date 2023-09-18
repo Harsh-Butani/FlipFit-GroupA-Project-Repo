@@ -158,7 +158,7 @@ public class GymOwnerDAOImplementation implements GymOwnerDAOInterface{
 				String address = rs.getString("Address");
 				String name = rs.getString("name");
 				System.out.println("GymOwnerEmail: " + email + " Name: " + name + 
-						" Address: " + address + "GymOwnerID: " + gymOwnerID);
+						" Address: " + address + " GymOwnerID: " + gymOwnerID);
 			}
 
 		} catch(Exception e) {
