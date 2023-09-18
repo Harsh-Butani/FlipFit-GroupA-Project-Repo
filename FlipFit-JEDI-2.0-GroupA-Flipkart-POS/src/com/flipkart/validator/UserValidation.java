@@ -6,7 +6,7 @@ package com.flipkart.validator;
 import com.flipkart.exception.WrongEmailFormatException;
 
 /**
- * 
+ * @author kshitij.gupta1
  */
 public class UserValidation {
 	private static String email;

@@ -30,7 +30,7 @@ public interface UserDAOInterface {
 	 * @param user
 	 * @return whether a user exists for given details
 	 */
-//	public User getUserDB(User user);
+
 	public Boolean queryUserDB(User user);
 
 

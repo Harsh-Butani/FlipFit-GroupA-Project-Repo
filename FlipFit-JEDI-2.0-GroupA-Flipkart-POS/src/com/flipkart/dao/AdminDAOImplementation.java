@@ -18,7 +18,6 @@ public class AdminDAOImplementation implements AdminDAOInterface{
 
 	@Override
 	public void approveGymOwnerDB(Integer gymOwnerID) { // Used to set approval status to true for the given gym owner in GymOwnerDB and insert them in User DB
-		// TODO Auto-generated method stub
 		Connection conn = null;
 		PreparedStatement stmt = null;
 		try {
@@ -51,7 +50,6 @@ public class AdminDAOImplementation implements AdminDAOInterface{
 
 	@Override
 	public void approveAllGymOwnerDB() { // Used to set approval status to true for all gym owners (in GymOwnerDB) whose approval status is false and insert them in UserDB
-		// TODO Auto-generated method stub
 		Connection conn = null;
 		PreparedStatement stmt = null;
 		try {
@@ -79,7 +77,6 @@ public class AdminDAOImplementation implements AdminDAOInterface{
 
 	@Override
 	public boolean queryGymOwnerDB() { //Used to Query the GymOwner DB by Admin to fetch the pending approval requests
-		// TODO Auto-generated method stub
 		Connection conn = null;
 		PreparedStatement stmt = null;
 		try {
@@ -108,7 +105,6 @@ public class AdminDAOImplementation implements AdminDAOInterface{
 
 	@Override
 	public void approveGymDB(Integer gymID) { //Used to approve the Gym registration followed by auto approval of Slots
-		// TODO Auto-generated method stub
 		Connection conn = null;
 		PreparedStatement stmt = null;
 		try {
@@ -149,7 +145,6 @@ public class AdminDAOImplementation implements AdminDAOInterface{
 
 	@Override
 	public boolean queryGymDB() { //Used to Query the Gym DB by Admin to fetch All pending Gym Registration requests
-		// TODO Auto-generated method stub
 		Connection conn = null;
 		PreparedStatement stmt = null;
 		try {

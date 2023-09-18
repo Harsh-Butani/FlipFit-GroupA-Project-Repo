@@ -1,5 +1,8 @@
 package com.flipkart.exception;
 
+/**
+ * @author kshitij.gupta1
+ */
 public class SlotFullException extends Exception {
 	private Integer gymID;
 	private Integer slotNumber;

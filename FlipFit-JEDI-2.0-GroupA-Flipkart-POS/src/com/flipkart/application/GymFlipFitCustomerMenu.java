@@ -67,7 +67,6 @@ public class GymFlipFitCustomerMenu {
 			System.out.println("Press 3 to cancel booked slots");
 			System.out.println("Press 4 to view all bookings");
 			System.out.println("Press 5 to view gym info");
-			//System.out.println("Press 6 to check booking list");
 			System.out.println("Press 6 to check available slots");
 			System.out.println("Press 7 to check profile");
 			System.out.println("Press 8 to exit");
@@ -116,9 +115,6 @@ public class GymFlipFitCustomerMenu {
 					gymID = in.nextInt();
 					customer.getGymInfo(gymID);
 					break;
-//				case 6:
-//					//customer.checkBookingList();
-//					break;
 				case 6:
 					System.out.println("Enter Gym ID: ");
 					gymID = in.nextInt();

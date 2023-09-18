@@ -19,14 +19,12 @@ public class GymOwnerServiceOperation implements GymOwnerServiceInterface{
 	}
 	@Override
 	public boolean registerGym(GymDetails gym) { // Used to request registration for the passed gym
-		// TODO Auto-generated method stub
 		dao.insertGymDB(gym.getGymOwnerID(), gym.getGymName(), gym.getGymAddress());
 		return true;
 	}
 
 	@Override
 	public boolean viewMyGyms(Integer gymOwnerID) { // Used to view gyms of the passed gym owner
-		// TODO Auto-generated method stub
 		return dao.queryGymDB(gymOwnerID);
 	}
 	

@@ -56,9 +56,6 @@ public interface CustomerServiceInterface {
 	public void getGymInfo(Integer gymID);
 
 
-
-	// public void checkBookingList();
-
 	/**
 	 * Method for customer to check available slots of a particular gym
 	 * @param gymID ID of the gym

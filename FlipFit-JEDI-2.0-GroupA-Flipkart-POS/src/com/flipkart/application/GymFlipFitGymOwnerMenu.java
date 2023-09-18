@@ -44,8 +44,6 @@ public class GymFlipFitGymOwnerMenu {
 						default:
 							System.out.println("Enter a valid choice");
 					}
-//					System.out.println("Enter gymOwner ID");
-//					Integer gymOwnerID = in.nextInt();
 					System.out.println("Enter gym name");
 					String gymName = in.next();
 					System.out.println("Enter gym address");

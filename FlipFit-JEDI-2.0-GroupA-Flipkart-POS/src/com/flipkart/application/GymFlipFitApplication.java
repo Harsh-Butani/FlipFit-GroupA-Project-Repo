@@ -23,7 +23,6 @@ import com.flipkart.business.UserServiceOperation;
 public class GymFlipFitApplication {
 
 	public static void main(String[] args) throws UserNotRegisteredException {
-		// TODO Auto-generated
         System.out.println("Welcome to FlipFit Application for Slot Booking!");
         Scanner in = new Scanner(System.in);
         while(true) {
@@ -51,9 +50,6 @@ public class GymFlipFitApplication {
         			try {
 	        			if(verifier.verifyCredentials(userLogin)) {
 	        				Date currentDate = new Date();
-//	        				LocalDate localDate = LocalDate.now();
-//	        				LocalTime localTime = LocalTime.now();
-//	        				LocalDateTime localDateTime = LocalDateTime.now();
 	        				System.out.println("Successfully logged in at " + currentDate);
 	        				if(userLogin.getRole().equals("Customer")) {
 	            				GymFlipFitCustomerMenu.customerMenu(in);
@@ -86,13 +82,10 @@ public class GymFlipFitApplication {
 						System.out.println("The email " + e.getEmail() + " doesn't match the correct format. Please retry");
 						continue;
 					}
-        			//user.setEmailID(in.next());
         			System.out.println("Create a password");
 					String password = in.next();
-        			//user.setPassword(in.next());
         			System.out.println("Enter your role (Customer/GymOwner)");
 					String role = in.next();
-        			//user.setRole(role);
 					switch (role){
 						case "GymOwner":
 							GymOwner gymOwner = new GymOwner();

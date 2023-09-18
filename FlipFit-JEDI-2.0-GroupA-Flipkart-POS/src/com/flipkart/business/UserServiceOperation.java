@@ -25,7 +25,6 @@ public class UserServiceOperation implements UserServiceInterface{
 	}
 	@Override
 	public void registerUser(User user) throws AlreadyRegisteredException { // Used to register the passed user
-		// TODO Auto-generated method stub
 		if(userDAO.queryUserDB(user)) {
 			throw new AlreadyRegisteredException(user.getEmailID(), user.getRole());
 		}
@@ -34,15 +33,8 @@ public class UserServiceOperation implements UserServiceInterface{
 	
 	@Override
 	public void updateUser(User user, String password) { // Used to update password of given user
-		// TODO Auto-generated method stub
 		userDAO.updateUserDB(user,password);
 	}
-	
-//	@Override
-//	public User getUser(User user) {
-//		// TODO Auto-generated method stub
-//		return userDAO.getUserDB(user);	
-//	}
 
 	@Override
 	public void registerGymOwner(GymOwner gymOwner) { // Used to register given gym owner

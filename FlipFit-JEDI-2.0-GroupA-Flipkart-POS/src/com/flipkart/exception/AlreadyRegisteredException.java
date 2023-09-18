@@ -1,5 +1,8 @@
 package com.flipkart.exception;
 
+/**
+ * @author kshitij.gupta1
+ */
 public class AlreadyRegisteredException extends Exception {
 	private String email;
 	private String role;

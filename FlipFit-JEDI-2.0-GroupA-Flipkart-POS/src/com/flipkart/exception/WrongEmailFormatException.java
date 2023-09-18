@@ -4,7 +4,7 @@
 package com.flipkart.exception;
 
 /**
- * 
+ * @author kshitij.gupta1
  */
 public class WrongEmailFormatException extends Exception{
 	private String email;

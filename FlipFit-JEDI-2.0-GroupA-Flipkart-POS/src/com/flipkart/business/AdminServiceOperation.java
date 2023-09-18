@@ -15,7 +15,6 @@ public class AdminServiceOperation implements AdminServiceInterface{
 
 	@Override
 	public boolean approveGymOwnerRequest(Integer GymOwnerID) { // Used to approve gym owner request whose gym owner ID is passed
-		// TODO Auto-generated method stub
 		dao.approveGymOwnerDB(GymOwnerID);
 		return true;
 	}
@@ -28,14 +27,12 @@ public class AdminServiceOperation implements AdminServiceInterface{
 
 	@Override
 	public boolean viewPendingGymOwnerRequests() { // used to view oending gym owner registration requests
-		// TODO Auto-generated method stub
 		return dao.queryGymOwnerDB();
 		
 	}
 
 	@Override
 	public boolean approveGymRegistration(Integer gymID) { // Used to approve registration of gym whose gym ID is passed
-		// TODO Auto-generated method stub
 		dao.approveGymDB(gymID);
 		return true;
 	}
@@ -48,7 +45,6 @@ public class AdminServiceOperation implements AdminServiceInterface{
 
 	@Override
 	public boolean viewPendingGymRegistrations() { // Used to view pending gym registration requests
-		// TODO Auto-generated method stub
 		return dao.queryGymDB();
 		
 	}

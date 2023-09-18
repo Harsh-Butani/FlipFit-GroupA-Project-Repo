@@ -36,7 +36,6 @@ public class UserDAOImplementation implements UserDAOInterface{
 	
 	@Override
 	public void updateUserDB(User user, String password) {
-		// TODO Auto-generated method stub
 		Connection conn = null;
 		PreparedStatement stmt = null;
 		try {
@@ -52,43 +51,6 @@ public class UserDAOImplementation implements UserDAOInterface{
 			System.out.println(e);
 		}
 	}
-	
-//	@Override
-//	public User getUserDB(User user) {
-//		// TODO Auto-generated method stub
-//		Connection conn = null;
-//		PreparedStatement stmt = null;
-//		try {
-//			conn = DatabaseConnector.getConnection();
-//
-//
-//			stmt = conn.prepareStatement(SQLConstants.QUERY_USER_DB_FOR_EMAIL_ROLE);
-//
-//			stmt.setString(1, user.getEmailID());
-//
-//			stmt.setString(2, user.getRole());
-//
-//		    ResultSet rs = stmt.executeQuery();
-//
-//		    User currUser = null;
-//		    while(rs.next()){
-//		        String email = rs.getString("email");
-//		        String password = rs.getString("password");
-//		        String role = rs.getString("role");
-//		        if(email.equals(user.getEmailID()) && role.equals(user.getRole())){
-//		        	currUser = new User();
-//			        currUser.setEmailID(email);
-//			        currUser.setPassword(password);
-//			        currUser.setRole(role);
-//			        return currUser;
-//		        }
-//		    }
-//		    return null;
-//		} catch (Exception e) {
-//			System.out.println(e);
-//			return null;
-//		}
-//	}
 
 	@Override
 	public Boolean queryUserDB(User user) {

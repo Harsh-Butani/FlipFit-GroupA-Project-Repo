@@ -72,13 +72,6 @@ public class CustomerServiceOperation implements CustomerServiceInterface{
 		dao.queryGymDB(gymID);
 	}
 
-//	@Override
-//	public void checkBookingList() {
-//		// TODO Auto-generated method stub
-//		System.out.println("Checking booking list");
-//
-//	}
-
 	@Override
 	public boolean checkAvailableSlots(Integer gymID) { // Used to check available slots for the given gym
 		return dao.querySeatsSlotDB(gymID);
