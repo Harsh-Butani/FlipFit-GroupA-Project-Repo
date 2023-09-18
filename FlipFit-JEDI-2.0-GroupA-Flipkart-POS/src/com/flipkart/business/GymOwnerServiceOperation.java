@@ -1,6 +1,7 @@
 package com.flipkart.business;
 
 import com.flipkart.bean.GymDetails;
+import com.flipkart.exception.GymAlreadyRegisteredException;
 import com.flipkart.bean.SlotCatalogDetails;
 import com.flipkart.dao.AdminDAOImplementation;
 import com.flipkart.dao.AdminDAOInterface;
@@ -18,7 +19,11 @@ public class GymOwnerServiceOperation implements GymOwnerServiceInterface{
 		dao  = new GymOwnerDAOImplementation();
 	}
 	@Override
-	public boolean registerGym(GymDetails gym) { // Used to request registration for the passed gym
+	public boolean registerGym(GymDetails gym) throws GymAlreadyRegisteredException { // Used to request registration for the passed gym
+		Integer oldGymID = dao.queryGymDB(gym.getGymOwnerID(), gym.getGymName(), gym.getGymAddress());
+		if(oldGymID != 0) {
+			throw new GymAlreadyRegisteredException();
+		}
 		dao.insertGymDB(gym.getGymOwnerID(), gym.getGymName(), gym.getGymAddress());
 		return true;
 	}

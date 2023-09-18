@@ -5,6 +5,7 @@ package com.flipkart.business;
 
 import com.flipkart.bean.GymDetails;
 import com.flipkart.bean.SlotCatalogDetails;
+import com.flipkart.exception.GymAlreadyRegisteredException;
 import com.flipkart.exception.SlotNotBookedException;
 
 /**
@@ -14,8 +15,9 @@ public interface GymOwnerServiceInterface {
 	/**
 	 * Method for GymOwner to register a new gym
 	 * @param gym Details of the new gym
+	 * @throws Throws an exception if gym is already registered
 	 */
-	public boolean registerGym(GymDetails gym);
+	public boolean registerGym(GymDetails gym) throws GymAlreadyRegisteredException;
 
 	/**
 	 * Method for GymOwner to view their gyms

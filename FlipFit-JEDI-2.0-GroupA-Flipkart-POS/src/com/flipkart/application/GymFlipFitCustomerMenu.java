@@ -56,7 +56,7 @@ public class GymFlipFitCustomerMenu {
 				break;
 			default:
 				System.out.println("Enter a valid choice!");
-
+				return;
 		}
 
 		

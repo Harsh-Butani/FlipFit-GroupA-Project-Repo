@@ -38,4 +38,5 @@ public class SQLConstants {
     public static final String QUERY_USER_DB_FOR_USERID = "select UserID from User where email =(?) and password = (?) and role = (?)";
     public static final String QUERY_PROFILE_GYMOWNER_DB = "select * from GymOwner where GymOwnerID = (?)";
     public static final String QUERY_PROFILE_USER_DB = "select * from User where UserID = (?)";
+    public static final String QUERY_GYM_DB_DETAILS_FOR_GYMOWNER = "select * from gym where GymOwnerID = (?) and gymName = (?) and gymAddress = (?)";
 }

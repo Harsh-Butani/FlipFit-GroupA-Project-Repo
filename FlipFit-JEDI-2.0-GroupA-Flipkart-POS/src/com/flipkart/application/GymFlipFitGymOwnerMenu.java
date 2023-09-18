@@ -11,12 +11,32 @@ import com.flipkart.bean.GymDetails;
 import com.flipkart.bean.SlotCatalogDetails;
 import com.flipkart.business.GymOwnerServiceInterface;
 import com.flipkart.business.GymOwnerServiceOperation;
+import com.flipkart.exception.GymAlreadyRegisteredException;
+import com.flipkart.exception.UserNotRegisteredException;
 
 /**
  * 
  */
 public class GymFlipFitGymOwnerMenu {
 	public static void gymOwnerMenu(Scanner in) {
+		System.out.println("Do you know your Gym Owner ID? Enter Y for yes and N for no");
+		String userChoice = in.next();
+		Integer gymOwnerID = null;
+		GymOwnerServiceInterface gymOwner = new GymOwnerServiceOperation();
+		switch(userChoice) {
+			case "Y":
+				System.out.println("Enter gym owner ID");
+				gymOwnerID = in.nextInt();
+				break;
+			case "N":
+				System.out.println("Enter your email ID");
+				String email = in.next();
+				gymOwnerID = gymOwner.getGymOwnerID(email);
+				break;
+			default:
+				System.out.println("Enter a valid choice!");
+				return;
+		}
 		while(true) {
 			System.out.println("----Gym Owner Menu----");
 			System.out.println("Press 1 to register gym");
@@ -25,25 +45,8 @@ public class GymFlipFitGymOwnerMenu {
 			System.out.println("Press 4 to exit");
 			
 			int option = in.nextInt();
-			GymOwnerServiceInterface gymOwner = new GymOwnerServiceOperation();
 			switch(option) {
 				case 1:
-					System.out.println("Do you know your gym owner ID? (Y/N)");
-					String choice = in.next();
-					Integer gymOwnerID = 0;
-					switch(choice) {
-						case "Y":
-							System.out.println("Enter gym owner ID");
-							gymOwnerID = in.nextInt();
-							break;
-						case "N":
-							System.out.println("Enter your email ID");
-							String email = in.next();
-							gymOwnerID = gymOwner.getGymOwnerID(email);
-							break;
-						default:
-							System.out.println("Enter a valid choice");
-					}
 					System.out.println("Enter gym name");
 					String gymName = in.next();
 					System.out.println("Enter gym address");
@@ -52,8 +55,14 @@ public class GymFlipFitGymOwnerMenu {
 					gym.setGymOwnerID(gymOwnerID);
 					gym.setGymName(gymName);
 					gym.setGymAddress(gymAddress);
-					if(gymOwner.registerGym(gym)) {
-						System.out.println("Successfully registered");
+					try {
+						if(gymOwner.registerGym(gym)) {
+							System.out.println("Successfully registered");
+						}
+					}
+					catch(GymAlreadyRegisteredException e) {
+						System.out.println("Gym is already registered");
+						continue;
 					}
 					System.out.println("Choose slot from the below menu");
 					for (int j = 0; j < 24; j++) {
@@ -89,44 +98,12 @@ public class GymFlipFitGymOwnerMenu {
 					}
 					break;
 				case 2:
-					System.out.println("Do you know your gym owner ID? (Y/N)");
-					String choice1 = in.next();
-					Integer gymOwnerID1 = 0;
-					switch(choice1) {
-						case "Y":
-							System.out.println("Enter gym owner ID");
-							gymOwnerID1 = in.nextInt();
-							break;
-						case "N":
-							System.out.println("Enter your email ID");
-							String email = in.next();
-							gymOwnerID1 = gymOwner.getGymOwnerID(email);
-							break;
-						default:
-							System.out.println("Enter a valid choice");
-					}
-					if(!gymOwner.viewMyGyms(gymOwnerID1)) {
+					if(!gymOwner.viewMyGyms(gymOwnerID)) {
 						System.out.println("No gyms registered yet (Not approved by Admin if registration requests sent)");
 					}
 					break;
 				case 3:
-					System.out.println("Do you know your gym owner ID? (Y/N)");
-					String choice2 = in.next();
-					Integer gymOwnerID2 = 0;
-					switch(choice2) {
-						case "Y":
-							System.out.println("Enter gym owner ID");
-							gymOwnerID2 = in.nextInt();
-							break;
-						case "N":
-							System.out.println("Enter your email ID");
-							String email = in.next();
-							gymOwnerID2 = gymOwner.getGymOwnerID(email);
-							break;
-						default:
-							System.out.println("Enter a valid choice");
-					}
-					gymOwner.viewProfile(gymOwnerID2);
+					gymOwner.viewProfile(gymOwnerID);
 					break;
 				case 4:
 					return;
