@@ -28,7 +28,7 @@ public class SQLConstants {
     public static final String FETCH_GYM_OWNER_DETAILS_JUST_APPROVED = "select emailID, password from GymOwner where GymOwnerID = (?)";
     public static final String FETCH_PENDING_GYM_OWNERS_FOR_USER_DB_INSERTION = "select emailID, password from GymOwner where ApprovalStatus = 0";
     public static final String INSERT_INTO_GYM_OWNER_DB = "insert into GymOwner (name, Address, IDProof) values (?,?,?)";
-    public static final String INSERT_INTO_GYM_DB = "insert into Gym (GymOwnerID, ApprovalStatus, gymName, gymAddress) values (?,?,?,?)";
+    public static final String INSERT_INTO_GYM_DB = "insert into Gym (GymOwnerID, gymName, gymAddress) values (?,?,?)";
     public static final String QUERY_GYM_DB_FOR_GYMID = "select gymID from gym where GymOwnerID = (?) and gymName = (?) and gymAddress = (?)";
     public static final String INSERT_INTO_SLOT_DB = "insert into slot (gymID, slotNumber, availableSeats, ApprovedStatus) values (?,?,?,?)";
     public static final String QUERY_GYM_DB_FOR_GYMOWNER = "select * from gym where GymOwnerID = (?)";

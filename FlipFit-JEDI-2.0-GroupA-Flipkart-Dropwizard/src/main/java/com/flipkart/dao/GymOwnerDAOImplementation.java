@@ -27,9 +27,8 @@ public class GymOwnerDAOImplementation implements GymOwnerDAOInterface{
 			conn = DatabaseConnector.getConnection();
 			stmt = conn.prepareStatement(SQLConstants.INSERT_INTO_GYM_DB);
 			stmt.setInt(1, gymOwnerID);
-			stmt.setInt(2, 0);
-			stmt.setString(3, gymName);
-			stmt.setString(4,  gymAddress);
+			stmt.setString(2, gymName);
+			stmt.setString(3,  gymAddress);
 			stmt.executeUpdate();
 
 		} catch(Exception e) {

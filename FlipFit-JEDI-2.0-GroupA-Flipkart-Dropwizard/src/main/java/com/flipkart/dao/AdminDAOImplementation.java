@@ -58,17 +58,6 @@ public class AdminDAOImplementation implements AdminDAOInterface{
 		try {
 
 			conn = DatabaseConnector.getConnection();
-			stmt = conn.prepareStatement(SQLConstants.FETCH_PENDING_GYM_OWNERS_FOR_USER_DB_INSERTION);
-			ResultSet rs = stmt.executeQuery();
-			while(rs.next()){
-				String emailID = rs.getString("emailID");
-				String password = rs.getString("password");
-				stmt = conn.prepareStatement(SQLConstants.INSERT_APPROVED_GYM_OWNERS_TO_USER_DB);
-				stmt.setString(1,emailID);
-				stmt.setString(2,password);
-				stmt.setString(3, "GymOwner");
-				stmt.executeUpdate();
-			}
 			stmt = conn.prepareStatement(SQLConstants.APPROVE_ALL_PENDING_GYM_OWNER_QUERY);
 			stmt.executeUpdate();
 

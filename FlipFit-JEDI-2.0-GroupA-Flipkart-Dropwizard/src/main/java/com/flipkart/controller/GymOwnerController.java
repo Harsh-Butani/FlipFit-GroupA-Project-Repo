@@ -32,4 +32,11 @@ public class GymOwnerController {
         ArrayList<GymDetails> myGyms = dao.queryGymDB(gymOwnerID);
         return Response.ok(myGyms).build();
     }
+
+    @POST
+    @Path("/registerGym")
+    public boolean registerGym(@QueryParam("gymOwnerID")int gymOwnerID,@QueryParam("gymName")String gymName, @QueryParam("gymAddress")String gymAddress) { // Used to request registration for the passed gym
+        dao.insertGymDB(gymOwnerID,gymName, gymAddress);
+        return true;
+    }
 }
