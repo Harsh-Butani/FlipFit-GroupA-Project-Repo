@@ -4,7 +4,7 @@ package com.flipkart.bean;
  */
 public class GymDetails {
 	private Integer gymID;
-	private boolean gymApprovalStatus;
+	private int gymApprovalStatus;
 	private String gymName;
 	private String gymAddress;
 	private Integer gymOwnerID;
@@ -21,10 +21,7 @@ public class GymDetails {
 	public void setGymID(Integer gymID) {
 		this.gymID = gymID;
 	}
-	public boolean isGymApprovalStatus() {
-		return gymApprovalStatus;
-	}
-	public void setGymApprovalStatus(boolean gymApprovalStatus) {
+	public void setGymApprovalStatus(int gymApprovalStatus) {
 		this.gymApprovalStatus = gymApprovalStatus;
 	}
 	public String getGymName() {

@@ -52,7 +52,7 @@ public class GymOwnerDAOImplementation implements GymOwnerDAOInterface{
 				flag = true;
 				GymDetails gym = new GymDetails();
 				gym.setGymID(rs.getInt("GymID"));
-				gym.setGymApprovalStatus(rs.getBoolean("ApprovalStatus"));
+				gym.setGymApprovalStatus(rs.getInt("ApprovalStatus"));
 				gym.setGymName(rs.getString("gymName"));
 				gym.setGymAddress(rs.getString("gymAddress"));
 				myGyms.add(gym);

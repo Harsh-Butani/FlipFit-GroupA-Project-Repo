@@ -20,8 +20,8 @@ public class GymOwnerController {
         dao  = new GymOwnerDAOImplementation();
     }
     @POST
-    @Path("/registerGym")
-    public boolean registerGym(@QueryParam("gymName")String gymName, @QueryParam("gymAddress")String gymAddress,@QueryParam("IDProof")String IDProof) { // Used to request registration for the passed gym
+    @Path("/registerGymOwner")
+    public boolean registerGymOwner(@QueryParam("gymName")String gymName, @QueryParam("gymAddress")String gymAddress,@QueryParam("IDProof")String IDProof) { // Used to request registration for the passed gym
         dao.insertGymOwnerDB(gymName, gymAddress,IDProof);
         return true;
     }
