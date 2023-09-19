@@ -87,13 +87,14 @@ public class AdminDAOImplementation implements AdminDAOInterface{
 			boolean flag = false;
 			while(rs.next()){
 				if(!flag) {
-					System.out.println("These are the pending requests, choose one to approve\n");
+					System.out.println("----These are the pending requests, choose one to approve----\n");
+					System.out.printf("%-15s %-15s %-15s%n", "Gym owner ID", "Gym owner Name", "Gym owner Address");
 				}
 				flag = true;
 				String gymOwnerID = rs.getString("GymOwnerID");
 				String gymOwnerName = rs.getString("name");
 				String gymOwnerAddress = rs.getString("address");
-				System.out.println("GymOwnerID: " + gymOwnerID + ", GymOwnerName: " + gymOwnerName + ", gymOwnerAddress: " + gymOwnerAddress);
+				System.out.printf("    %-15s %-15s %-15s%n", gymOwnerID, gymOwnerName, gymOwnerAddress);
 			}
 			return flag;
 		} catch(Exception e) {
@@ -155,14 +156,15 @@ public class AdminDAOImplementation implements AdminDAOInterface{
 			boolean flag = false;
 				while (rs.next()) {
 					if(!flag) {
-						System.out.println("These are the pending requests, choose one to approve\n");
+						System.out.println("----These are the pending requests, choose one to approve----\n");
+						System.out.printf("%-15s %-15s %-15s %-15s%n", "Gym ID", "Gym owner ID", "Gym Name", "Gym Address");
 					}
 					flag = true;
 					String gymID = rs.getString("GymID");
 					String gymOwnerID = rs.getString("GymOwnerID");
 					String gymName = rs.getString("gymName");
 					String gymAddress = rs.getString("gymAddress");
-					System.out.println("GymID: " + gymID + ", GymOwnerID: " + gymOwnerID + ", GymName: " + gymName + ", GymAddress: " + gymAddress);
+					System.out.printf("  %-15s %-15s %-15s %-15s%n", gymID, gymOwnerID, gymName, gymAddress);
 				}
 				return flag;
 

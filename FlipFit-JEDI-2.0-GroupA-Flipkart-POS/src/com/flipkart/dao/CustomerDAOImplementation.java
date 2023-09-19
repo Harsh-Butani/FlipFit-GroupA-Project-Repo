@@ -25,11 +25,14 @@ public class CustomerDAOImplementation implements CustomerDAOInterface {
 			ResultSet rs = stmt.executeQuery();
 			boolean flag = false;
 			while(rs.next()){
+				if(!flag) {
+					System.out.printf("%-15s %-15s %-15s%n", "Gym ID", "Gym Name", "Gym Address");
+				}
 				flag = true;
 				String gymID = rs.getString("gymID");
 				String gymName = rs.getString("gymName");
 				String gymAddress = rs.getString("gymAddress");
-				System.out.println("GymID: " + gymID + ", GymName: " + gymName + ", GymAddress: " + gymAddress);
+				System.out.printf("  %-15s %-15s %-15s%n", gymID, gymName, gymAddress);
 			}
 			return flag;
 		} catch(Exception e) {
@@ -194,11 +197,20 @@ public class CustomerDAOImplementation implements CustomerDAOInterface {
 			ResultSet rs = stmt.executeQuery();
 			boolean flag = false;
 			while(rs.next()){
+				if(!flag) {
+					System.out.printf("%-15s %-15s %-15s %-15s%n", "User ID", "Gym ID", "Slot Number", "Slot Timings");
+				}
 				flag = true;
 				Integer ruserID = rs.getInt("userID");
 				String gymID = rs.getString("gymID");
-				String slotNumber = rs.getString("slotNumber");
-				System.out.println("userID: " + ruserID + ", GymID: " + gymID + ", slotNumber: " + slotNumber);
+//				String slotNumber = rs.getString("slotNumber");
+				Integer slotNumber = rs.getInt("slotNumber");
+				Integer startHour = slotNumber%12;
+				Integer endHour = (slotNumber+1)%12;
+				String AMPMStart = (slotNumber < 12 ? "AM" : "PM");
+				String AMPMEnd = (slotNumber < 11 ? "AM" : "PM");
+				String timing = Integer.toString(startHour) + " " + AMPMStart + " - " + Integer.toString(endHour) + " " + AMPMEnd;
+				System.out.printf("  %-15s %-15s %-15s %-15s%n", ruserID, gymID, slotNumber, timing);
 			}
 			return flag;
 		} catch(Exception e) {
@@ -219,9 +231,10 @@ public class CustomerDAOImplementation implements CustomerDAOInterface {
 			if(rs.next()){
 				String gymName = rs.getString("gymName");
 				String gymAddress = rs.getString("gymAddress");
-				System.out.println("gymName: " + gymName + ", gymAddress: " + gymAddress);
+				System.out.println("Gym Name: " + gymName);
+				System.out.println("Gym Address: " + gymAddress);
 			}else{
-				System.out.println("No approved/registered gym with following gymID");
+				System.out.println("No approved/registered gym with given gym ID");
 			}
 		} catch(Exception e) {
 			System.out.println(e);
@@ -239,10 +252,18 @@ public class CustomerDAOImplementation implements CustomerDAOInterface {
 			ResultSet rs = stmt.executeQuery();
 			boolean flag = false;
 			while(rs.next()){
+				if(!flag) {
+					System.out.printf("%-15s %-15s %-15s%n", "Slot Number", "Slot Timings", "Available Seats");
+				}
 				flag = true;
 				Integer slotNumber = rs.getInt("slotNumber");
 				Integer availableSeats = rs.getInt("availableSeats");
-				System.out.println("slotNumber: " + slotNumber + ", availableSeats: " + availableSeats);
+				Integer startHour = slotNumber%12;
+				Integer endHour = (slotNumber+1)%12;
+				String AMPMStart = (slotNumber < 12 ? "AM" : "PM");
+				String AMPMEnd = (slotNumber < 11 ? "AM" : "PM");
+				String timing = Integer.toString(startHour) + " " + AMPMStart + " - " + Integer.toString(endHour) + " " + AMPMEnd;
+				System.out.printf("   %-15s %-15s %-15s%n", slotNumber, timing, availableSeats);
 			}
 			return flag;
 		} catch(Exception e) {
@@ -304,7 +325,9 @@ public class CustomerDAOImplementation implements CustomerDAOInterface {
 			if(rs.next()){
 				String email = rs.getString("email");
 				String role = rs.getString("role");
-				System.out.println("UserID: " + userID + " email: " + email + " role: " + role);
+				System.out.println("User ID: " + userID);
+				System.out.println("Email: " + email);
+				System.out.println("Role: " + role);
 			}
 		} catch(Exception e) {
 			System.out.println(e);

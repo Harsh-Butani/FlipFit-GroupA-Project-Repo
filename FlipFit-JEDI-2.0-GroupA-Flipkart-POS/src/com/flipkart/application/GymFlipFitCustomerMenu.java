@@ -30,6 +30,7 @@ public class GymFlipFitCustomerMenu {
 		User userLogin = new User();
 		switch (userChoice){
 			case "Y":
+				System.out.println("Enter User ID");
 				UserID = in.nextInt();
 				break;
 			case "N":

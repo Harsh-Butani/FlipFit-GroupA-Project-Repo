@@ -46,12 +46,15 @@ public class GymOwnerDAOImplementation implements GymOwnerDAOInterface{
 			ResultSet rs = stmt.executeQuery();
 			boolean flag = false;
 			while(rs.next()) {
+				if(!flag) {
+					System.out.printf("%-15s %-15s %-15s %-15s%n", "Gym ID", "Approval Status", "Gym Name", "Gym Address");
+				}
 				flag = true;
 				Integer gymID = rs.getInt("GymID");
 			    Integer approvalStatus = rs.getInt("ApprovalStatus");
 			    String gymName = rs.getString("gymName");
 			    String gymAddress = rs.getString("gymAddress");
-			    System.out.println("gymID: " + gymID + " approvalStatus: " + approvalStatus + " gymName: " + gymName + " gymAddress: " + gymAddress);
+			    System.out.printf("  %-15s %-15s %-15s %-15s%n", gymID, approvalStatus, gymName, gymAddress);
 			}
 			return flag;
 		} catch(Exception e) {
@@ -157,8 +160,10 @@ public class GymOwnerDAOImplementation implements GymOwnerDAOInterface{
 				String email = rs.getString("emailID");
 				String address = rs.getString("Address");
 				String name = rs.getString("name");
-				System.out.println("GymOwnerEmail: " + email + " Name: " + name + 
-						" Address: " + address + " GymOwnerID: " + gymOwnerID);
+				System.out.println("Gym owner ID: " + gymOwnerID );
+				System.out.println("Name: " + name);
+				System.out.println("Address: " + address);
+				System.out.println("Email: " + email);
 			}
 
 		} catch(Exception e) {
