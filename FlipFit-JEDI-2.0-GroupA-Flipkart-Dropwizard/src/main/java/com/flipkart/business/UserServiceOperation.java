@@ -36,8 +36,4 @@ public class UserServiceOperation implements UserServiceInterface{
 		userDAO.updateUserDB(user,password);
 	}
 
-	@Override
-	public void registerGymOwner(GymOwner gymOwner) { // Used to register given gym owner
-		gymOwnerDAO.insertGymOwnerDB(gymOwner);
-	}
 }

@@ -1,7 +1,11 @@
 package com.flipkart.business;
 
+import com.flipkart.bean.GymDetails;
+import com.flipkart.bean.GymOwner;
 import com.flipkart.dao.AdminDAOImplementation;
 import com.flipkart.dao.AdminDAOInterface;
+
+import java.util.ArrayList;
 
 /**
  * @author kshitij.gupta1
@@ -26,8 +30,8 @@ public class AdminServiceOperation implements AdminServiceInterface{
 	}
 
 	@Override
-	public boolean viewPendingGymOwnerRequests() { // used to view pending gym owner registration requests
-		return dao.queryGymOwnerDB()>0;
+	public ArrayList<GymOwner> viewPendingGymOwnerRequests() { // used to view pending gym owner registration requests
+		return dao.queryGymOwnerDB();
 		
 	}
 
@@ -44,7 +48,7 @@ public class AdminServiceOperation implements AdminServiceInterface{
 	}
 
 	@Override
-	public boolean viewPendingGymRegistrations() { // Used to view pending gym registration requests
+	public ArrayList<GymDetails> viewPendingGymRegistrations() { // Used to view pending gym registration requests
 		return dao.queryGymDB();
 		
 	}

@@ -3,6 +3,8 @@
  */
 package com.flipkart.dao;
 
+import com.flipkart.bean.GymDetails;
+import com.flipkart.bean.GymOwner;
 import com.flipkart.constants.SQLConstants;
 import com.flipkart.utils.DatabaseConnector;
 
@@ -10,6 +12,7 @@ import java.rmi.server.RemoteRef;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.util.ArrayList;
 
 /**
  * @author kshitij.gupta1
@@ -76,30 +79,31 @@ public class AdminDAOImplementation implements AdminDAOInterface{
 	}
 
 	@Override
-	public int queryGymOwnerDB() { //Used to Query the GymOwner DB by Admin to fetch the pending approval requests
+	public ArrayList<GymOwner> queryGymOwnerDB() { //Used to Query the GymOwner DB by Admin to fetch the pending approval requests
 		Connection conn = null;
 		PreparedStatement stmt = null;
+		ArrayList<GymOwner> gymOwners= new ArrayList<>();
+
 		try {
-			int count = 0;
 			conn = DatabaseConnector.getConnection();
 			stmt = conn.prepareStatement(SQLConstants.VIEW_ALL_PENDING_GYM_OWNER_REQUEST_QUERY);
 			ResultSet rs = stmt.executeQuery();
 			boolean flag = false;
 			while(rs.next()){
-				if(!flag) {
-					System.out.println("These are the pending requests, choose one to approve\n");
-				}
-				count++;
 				flag = true;
-				String gymOwnerID = rs.getString("GymOwnerID");
-				String gymOwnerName = rs.getString("name");
-				String gymOwnerAddress = rs.getString("address");
-				System.out.println("GymOwnerID: " + gymOwnerID + ", GymOwnerName: " + gymOwnerName + ", gymOwnerAddress: " + gymOwnerAddress);
+				GymOwner gymOwner = new GymOwner();
+				gymOwner.setGymOwnerID(rs.getString("GymOwnerID"));
+				gymOwner.setName(rs.getString("name"));
+				gymOwner.setAddress(rs.getString("address"));
+				gymOwner.setIDProof(rs.getString("IDProof"));
+				gymOwner.setPassword("*****");
+				gymOwner.setEmailID("*****");
+				gymOwners.add(gymOwner);
 			}
-			return count;
+			return gymOwners;
 		} catch(Exception e) {
 			System.out.println(e);
-			return -1;
+			return null;
 		}
 		
 	}
@@ -145,7 +149,7 @@ public class AdminDAOImplementation implements AdminDAOInterface{
 	}
 
 	@Override
-	public boolean queryGymDB() { //Used to Query the Gym DB by Admin to fetch All pending Gym Registration requests
+	public ArrayList<GymDetails> queryGymDB() { //Used to Query the Gym DB by Admin to fetch All pending Gym Registration requests
 		Connection conn = null;
 		PreparedStatement stmt = null;
 		try {
@@ -153,23 +157,22 @@ public class AdminDAOImplementation implements AdminDAOInterface{
 			conn = DatabaseConnector.getConnection();
 			stmt = conn.prepareStatement(SQLConstants.VIEW_ALL_PENDING_GYM_REGISTRATION_REQUEST_QUERY);
 			ResultSet rs = stmt.executeQuery();
+			ArrayList<GymDetails> gyms = new ArrayList<>();
 			boolean flag = false;
 				while (rs.next()) {
-					if(!flag) {
-						System.out.println("These are the pending requests, choose one to approve\n");
-					}
+					GymDetails gym = new GymDetails();
 					flag = true;
-					String gymID = rs.getString("GymID");
-					String gymOwnerID = rs.getString("GymOwnerID");
-					String gymName = rs.getString("gymName");
-					String gymAddress = rs.getString("gymAddress");
-					System.out.println("GymID: " + gymID + ", GymOwnerID: " + gymOwnerID + ", GymName: " + gymName + ", GymAddress: " + gymAddress);
+					gym.setGymID(rs.getInt("GymID"));
+					gym.setGymOwnerID(rs.getInt("GymOwnerID"));
+					gym.setGymName(rs.getString("gymName"));
+					gym.setGymAddress(rs.getString("gymAddress"));
+					gyms.add(gym);
 				}
-				return flag;
+				return gyms;
 
 		} catch(Exception e) {
 			System.out.println(e);
-			return false;
+			return null;
 		}
 		
 	}

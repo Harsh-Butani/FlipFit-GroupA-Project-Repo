@@ -8,6 +8,8 @@ import com.flipkart.bean.SlotCatalogDetails;
 import com.flipkart.exception.GymAlreadyRegisteredException;
 import com.flipkart.exception.SlotNotBookedException;
 
+import java.util.ArrayList;
+
 /**
  * @author kshitij.gupta1
  */
@@ -23,7 +25,7 @@ public interface GymOwnerServiceInterface {
 	 * Method for GymOwner to view their gyms
 	 * @param gymOwnerID ID of the gymOwner
 	 */
-	public boolean viewMyGyms(Integer gymOwnerID);
+	public ArrayList<GymDetails> viewMyGyms(Integer gymOwnerID);
 
 	/**
 	 * Method for GymOwner to fetch their GymID given the GymOwnerID and gym details

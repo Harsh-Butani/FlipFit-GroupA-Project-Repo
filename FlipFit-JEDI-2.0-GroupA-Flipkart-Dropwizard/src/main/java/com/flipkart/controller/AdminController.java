@@ -1,12 +1,15 @@
 package com.flipkart.controller;
 
-import jakarta.ws.rs.GET;
-import jakarta.ws.rs.POST;
-import jakarta.ws.rs.Path;
-import jakarta.ws.rs.QueryParam;
+import com.flipkart.bean.GymDetails;
+import com.flipkart.bean.GymOwner;
+import jakarta.ws.rs.*;
 
 import com.flipkart.dao.AdminDAOImplementation;
 import com.flipkart.dao.AdminDAOInterface;
+import jakarta.ws.rs.core.MediaType;
+import jakarta.ws.rs.core.Response;
+
+import java.util.ArrayList;
 
 @Path("/admin")
 public class AdminController {
@@ -15,42 +18,48 @@ public class AdminController {
         dao = new AdminDAOImplementation();
     }
 
-    @POST
+    @PUT
     @Path("/approveGymOwnerRequest")
+    @Produces(MediaType.APPLICATION_JSON)
     public void approveGymOwnerRequest(@QueryParam("gymOwnerID")Integer gymOwnerID) { // Used to approve gym owner request whose gym owner ID is passed
         dao.approveGymOwnerDB(gymOwnerID);
     }
 
-    @POST
+    @PUT
     @Path("/approveAllGymOwnerRequest")
-    public boolean approveAllGymOwnerRequest() { // Used to approve all gym owner registration requests
+    @Produces(MediaType.APPLICATION_JSON)
+    public void approveAllGymOwnerRequest() { // Used to approve all gym owner registration requests
         dao.approveAllGymOwnerDB();
-        return true;
     }
 
     @GET
     @Path("/viewPendingGymOwnerRequests")
-    public int viewPendingGymOwnerRequests() { // used to view pending gym owner registration requests
-        return dao.queryGymOwnerDB();
+    @Produces(MediaType.APPLICATION_JSON)
+    public Response viewPendingGymOwnerRequests() { // used to view pending gym owner registration requests
+        ArrayList<GymOwner> gymOwners = dao.queryGymOwnerDB();
+        return Response.ok(gymOwners).build();
     }
 
-    @POST
+    @PUT
     @Path("/approveGymRegistration")
+    @Produces(MediaType.APPLICATION_JSON)
     public boolean approveGymRegistration(@QueryParam("gymID")Integer gymID) { // Used to approve registration of gym whose gym ID is passed
         dao.approveGymDB(gymID);
         return true;
     }
 
-    @POST
+    @PUT
     @Path("/approveAllGymRegistration")
-    public boolean approveAllGymRegistration() { // Used to approve all pending gym registrations
+    @Produces(MediaType.APPLICATION_JSON)
+    public void approveAllGymRegistration() { // Used to approve all pending gym registrations
         dao.approveAllGymDB();
-        return true;
     }
 
     @GET
     @Path("/viewPendingGymRegistrations")
-    public boolean viewPendingGymRegistrations() { // Used to view pending gym registration requests
-        return dao.queryGymDB();
+    @Produces(MediaType.APPLICATION_JSON)
+    public Response viewPendingGymRegistrations() { // Used to view pending gym registration requests
+        ArrayList<GymDetails> gyms = dao.queryGymDB();
+        return Response.ok(gyms).build();
     }
 }

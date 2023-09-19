@@ -3,6 +3,11 @@
  */
 package com.flipkart.dao;
 
+import com.flipkart.bean.GymDetails;
+import com.flipkart.bean.GymOwner;
+
+import java.util.ArrayList;
+
 /**
  * @author kshitij.gupta1
  */
@@ -24,7 +29,7 @@ public interface AdminDAOInterface {
 	/**
 	 * Dao method used to Query the GymOwner DB by Admin to fetch the pending approval requests
 	 */
-	public int queryGymOwnerDB();
+	public ArrayList<GymOwner> queryGymOwnerDB();
 
 
 	/**
@@ -41,6 +46,6 @@ public interface AdminDAOInterface {
 	/**
 	 * Dao method used to Query the Gym DB by Admin to fetch All pending Gym Registration requests
 	 */
-	public boolean queryGymDB();
+	public ArrayList<GymDetails> queryGymDB();
 
 }

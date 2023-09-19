@@ -8,6 +8,8 @@ import com.flipkart.dao.AdminDAOInterface;
 import com.flipkart.dao.GymOwnerDAOImplementation;
 import com.flipkart.dao.GymOwnerDAOInterface;
 
+import java.util.ArrayList;
+
 /**
  * @author kshitij.gupta1
  */
@@ -29,7 +31,7 @@ public class GymOwnerServiceOperation implements GymOwnerServiceInterface{
 	}
 
 	@Override
-	public boolean viewMyGyms(Integer gymOwnerID) { // Used to view gyms of the passed gym owner
+	public ArrayList<GymDetails> viewMyGyms(Integer gymOwnerID) { // Used to view gyms of the passed gym owner
 		return dao.queryGymDB(gymOwnerID);
 	}
 	

@@ -98,7 +98,7 @@ public class GymFlipFitGymOwnerMenu {
 					}
 					break;
 				case 2:
-					if(!gymOwner.viewMyGyms(gymOwnerID)) {
+					if(gymOwner.viewMyGyms(gymOwnerID)!=null) {
 						System.out.println("No gyms registered yet (Not approved by Admin if registration requests sent)");
 					}
 					break;

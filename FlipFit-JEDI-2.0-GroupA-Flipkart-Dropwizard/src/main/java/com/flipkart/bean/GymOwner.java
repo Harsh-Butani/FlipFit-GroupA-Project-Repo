@@ -6,7 +6,7 @@ public class GymOwner {
 	private String name;
 	private String address;
 	private String IDProof;
-	private int gymOwnerID;
+	private String gymOwnerID;
 
 	public String getEmailID() {
 		return emailID;
@@ -46,10 +46,10 @@ public class GymOwner {
 	public void setIDProof(String iDProof) {
 		IDProof = iDProof;
 	}
-	public int getGymOwnerID() {
+	public String getGymOwnerID() {
 		return gymOwnerID;
 	}
-	public void setGymOwnerID(Integer gymOwnerID) {
+	public void setGymOwnerID(String gymOwnerID) {
 		this.gymOwnerID = gymOwnerID;
 	}
 }

@@ -3,8 +3,12 @@
  */
 package com.flipkart.business;
 
+import com.flipkart.bean.BookingList;
+import com.flipkart.bean.GymDetails;
 import com.flipkart.exception.SlotFullException;
 import com.flipkart.exception.SlotNotBookedException;
+
+import java.util.ArrayList;
 
 /**
  * @author kshitij.gupta1
@@ -14,7 +18,7 @@ public interface CustomerServiceInterface {
 	 * Method for customer to view all gyms
 	 * @return boolean value based on whether any gyms exist
 	 */
-	public boolean viewGyms();
+	public ArrayList<GymDetails> viewGyms();
 
 
 
@@ -45,7 +49,7 @@ public interface CustomerServiceInterface {
 	 * Method for customer to view all of their bookings
 	 * @param userID ID of the user
 	 */
-	public boolean viewAllBookings(Integer userID);
+	public ArrayList<BookingList> viewAllBookings(Integer userID);
 
 
 

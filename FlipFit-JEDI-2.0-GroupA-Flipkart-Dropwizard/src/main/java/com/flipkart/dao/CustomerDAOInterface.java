@@ -3,6 +3,11 @@
  */
 package com.flipkart.dao;
 
+import com.flipkart.bean.BookingList;
+import com.flipkart.bean.GymDetails;
+
+import java.util.ArrayList;
+
 /**
  * @author kshitij.gupta1
  */
@@ -11,7 +16,7 @@ public interface CustomerDAOInterface {
 	/**
 	 * Dao Method used to Query all the approved gyms by Customer
 	 */
-	public boolean queryAllGymDB();
+	public ArrayList<GymDetails> queryAllGymDB();
 
 
 	/**
@@ -20,7 +25,7 @@ public interface CustomerDAOInterface {
 	 * @param UserID userID to be checked
 	 * @return whether there exists a slot booked by given user at given slot
 	 */
-	public Boolean queryBookingListDB(Integer UserID, Integer slotNumber);
+	public boolean queryBookingListDB(Integer UserID, Integer slotNumber);
 
 
 	/**
@@ -61,7 +66,7 @@ public interface CustomerDAOInterface {
 	 * @param userID
 	 * @return whether there exists any booking of given user
 	 */
-	public boolean queryBookingListDB(Integer userID);
+	public ArrayList<BookingList> queryBookingListDB(Integer userID);
 
 
 	/**

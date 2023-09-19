@@ -3,6 +3,7 @@
  */
 package com.flipkart.dao;
 
+import com.flipkart.bean.GymDetails;
 import com.flipkart.bean.GymOwner;
 import com.flipkart.bean.SlotCatalogDetails;
 import com.flipkart.constants.SQLConstants;
@@ -11,6 +12,7 @@ import com.flipkart.utils.DatabaseConnector;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.util.ArrayList;
 
 /**
  * @author kshitij.gupta1
@@ -36,7 +38,7 @@ public class GymOwnerDAOImplementation implements GymOwnerDAOInterface{
 	}
 
 	@Override
-	public boolean queryGymDB(Integer gymOwnerID) {
+	public ArrayList<GymDetails> queryGymDB(Integer gymOwnerID) {
 		Connection conn = null;
 		PreparedStatement stmt = null;
 		try {
@@ -45,22 +47,29 @@ public class GymOwnerDAOImplementation implements GymOwnerDAOInterface{
 			stmt.setInt(1, gymOwnerID);
 			ResultSet rs = stmt.executeQuery();
 			boolean flag = false;
+			ArrayList<GymDetails> myGyms = new ArrayList<>();
 			while(rs.next()) {
 				flag = true;
-				Integer gymID = rs.getInt("GymID");
-			    Integer approvalStatus = rs.getInt("ApprovalStatus");
-			    String gymName = rs.getString("gymName");
-			    String gymAddress = rs.getString("gymAddress");
-			    System.out.println("gymID: " + gymID + " approvalStatus: " + approvalStatus + " gymName: " + gymName + " gymAddress: " + gymAddress);
+				GymDetails gym = new GymDetails();
+				gym.setGymID(rs.getInt("GymID"));
+				gym.setGymApprovalStatus(rs.getBoolean("ApprovalStatus"));
+				gym.setGymName(rs.getString("gymName"));
+				gym.setGymAddress(rs.getString("gymAddress"));
+				myGyms.add(gym);
 			}
-			return flag;
+			return myGyms;
 		} catch(Exception e) {
 			System.out.println(e);
-			return false;
+			return null;
 		}
 		
 	}
-	
+
+	@Override
+	public void insertGymOwnerDB(int gymOwnerID, String gymName, String gymAddress) {
+
+	}
+
 	@Override
 	public Integer queryGymDB(Integer gymOwnerID, String gymName, String gymAddress) {
 		Connection conn = null;
@@ -83,19 +92,16 @@ public class GymOwnerDAOImplementation implements GymOwnerDAOInterface{
 	}
 
 	@Override
-	public void insertGymOwnerDB(GymOwner gymOwner) {
+	public void insertGymOwnerDB(String gymName, String gymAddress, String IDProof) {
 		Connection conn = null;
 		PreparedStatement stmt = null;
 		try {
 
 			conn = DatabaseConnector.getConnection();
 			stmt = conn.prepareStatement(SQLConstants.INSERT_INTO_GYM_OWNER_DB);
-			stmt.setString(1,gymOwner.getName());
-			stmt.setString(2,gymOwner.getAddress());
-			stmt.setString(3,gymOwner.getIDProof());
-			stmt.setInt(4,0);
-			stmt.setString(5,gymOwner.getEmailID());
-			stmt.setString(6, gymOwner.getPassword());
+			stmt.setString(1,gymName);
+			stmt.setString(2,gymAddress);
+			stmt.setString(3,IDProof);
 			stmt.executeUpdate();
 
 		} catch(Exception e) {
@@ -164,6 +170,11 @@ public class GymOwnerDAOImplementation implements GymOwnerDAOInterface{
 		} catch(Exception e) {
 			System.out.println(e);
 		}
+	}
+
+	@Override
+	public void insertGymOwnerDB(Integer gymOwnerID, String gymName, String gymAddress){
+		System.out.println(gymAddress);
 	}
 
 }

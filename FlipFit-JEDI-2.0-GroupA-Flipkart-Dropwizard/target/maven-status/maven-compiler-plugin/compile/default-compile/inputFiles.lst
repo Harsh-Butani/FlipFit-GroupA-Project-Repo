@@ -31,6 +31,7 @@
 /Applications/FlipFit-GroupA-Project-Repo/FlipFit-JEDI-2.0-GroupA-Flipkart-Dropwizard/src/main/java/com/flipkart/business/GymOwnerServiceInterface.java
 /Applications/FlipFit-GroupA-Project-Repo/FlipFit-JEDI-2.0-GroupA-Flipkart-Dropwizard/src/main/java/com/flipkart/exception/WrongEmailFormatException.java
 /Applications/FlipFit-GroupA-Project-Repo/FlipFit-JEDI-2.0-GroupA-Flipkart-Dropwizard/src/main/java/com/flipkart/business/AdminServiceOperation.java
+/Applications/FlipFit-GroupA-Project-Repo/FlipFit-JEDI-2.0-GroupA-Flipkart-Dropwizard/src/main/java/com/flipkart/controller/GymOwnerController.java
 /Applications/FlipFit-GroupA-Project-Repo/FlipFit-JEDI-2.0-GroupA-Flipkart-Dropwizard/src/main/java/com/flipkart/application/GymFlipFitAdminMenu.java
 /Applications/FlipFit-GroupA-Project-Repo/FlipFit-JEDI-2.0-GroupA-Flipkart-Dropwizard/src/main/java/com/flipkart/validator/CustomerValidation.java
 /Applications/FlipFit-GroupA-Project-Repo/FlipFit-JEDI-2.0-GroupA-Flipkart-Dropwizard/src/main/java/com/flipkart/bean/Customer.java
@@ -43,4 +44,5 @@
 /Applications/FlipFit-GroupA-Project-Repo/FlipFit-JEDI-2.0-GroupA-Flipkart-Dropwizard/src/main/java/com/flipkart/business/VerificationServiceInterface.java
 /Applications/FlipFit-GroupA-Project-Repo/FlipFit-JEDI-2.0-GroupA-Flipkart-Dropwizard/src/main/java/com/flipkart/dao/CustomerDAOImplementation.java
 /Applications/FlipFit-GroupA-Project-Repo/FlipFit-JEDI-2.0-GroupA-Flipkart-Dropwizard/src/main/java/com/flipkart/bean/GymOwnerDetails.java
+/Applications/FlipFit-GroupA-Project-Repo/FlipFit-JEDI-2.0-GroupA-Flipkart-Dropwizard/src/main/java/com/flipkart/controller/CustomerController.java
 /Applications/FlipFit-GroupA-Project-Repo/FlipFit-JEDI-2.0-GroupA-Flipkart-Dropwizard/src/main/java/com/flipkart/controller/AdminController.java

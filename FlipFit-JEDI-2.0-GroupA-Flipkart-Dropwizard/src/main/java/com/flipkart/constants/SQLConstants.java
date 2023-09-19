@@ -3,7 +3,7 @@ package com.flipkart.constants;
 public class SQLConstants {
     public static final String APPROVE_GYM_OWNER_QUERY = "update GymOwner set ApprovalStatus = 1 where ApprovalStatus = 0 and GymOwnerID = (?)";
     public static final String APPROVE_ALL_PENDING_GYM_OWNER_QUERY = "update GymOwner set ApprovalStatus = 1 where ApprovalStatus = 0";
-    public static final String VIEW_ALL_PENDING_GYM_OWNER_REQUEST_QUERY = "select GymOwnerID, name, Address from GymOwner where ApprovalStatus = 0";
+    public static final String VIEW_ALL_PENDING_GYM_OWNER_REQUEST_QUERY = "select GymOwnerID, name, Address,IDProof from GymOwner where ApprovalStatus = 0";
     public static final String APPROVE_GYM_REGISTRATION_QUERY = "update Gym set ApprovalStatus = 1 where GymID = ?";
     public static final String APPROVE_ALL_PENDING_GYM_REGISTRATION_QUERY = "update Gym set ApprovalStatus = 1 where ApprovalStatus = 0";
     public static final String VIEW_ALL_PENDING_GYM_REGISTRATION_REQUEST_QUERY = "select GymID, GymOwnerID, gymName, gymAddress from Gym where ApprovalStatus = 0";
@@ -27,7 +27,7 @@ public class SQLConstants {
     public static final String INSERT_APPROVED_GYM_OWNERS_TO_USER_DB = "insert into user (email,password,role) values (?,?,?)";
     public static final String FETCH_GYM_OWNER_DETAILS_JUST_APPROVED = "select emailID, password from GymOwner where GymOwnerID = (?)";
     public static final String FETCH_PENDING_GYM_OWNERS_FOR_USER_DB_INSERTION = "select emailID, password from GymOwner where ApprovalStatus = 0";
-    public static final String INSERT_INTO_GYM_OWNER_DB = "insert into GymOwner (name, Address, IDProof, ApprovalStatus, emailID, password) values (?,?,?,?,?,?)";
+    public static final String INSERT_INTO_GYM_OWNER_DB = "insert into GymOwner (name, Address, IDProof) values (?,?,?)";
     public static final String INSERT_INTO_GYM_DB = "insert into Gym (GymOwnerID, ApprovalStatus, gymName, gymAddress) values (?,?,?,?)";
     public static final String QUERY_GYM_DB_FOR_GYMID = "select gymID from gym where GymOwnerID = (?) and gymName = (?) and gymAddress = (?)";
     public static final String INSERT_INTO_SLOT_DB = "insert into slot (gymID, slotNumber, availableSeats, ApprovedStatus) values (?,?,?,?)";

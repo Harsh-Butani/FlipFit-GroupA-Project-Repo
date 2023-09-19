@@ -3,8 +3,11 @@
  */
 package com.flipkart.dao;
 
+import com.flipkart.bean.GymDetails;
 import com.flipkart.bean.GymOwner;
 import com.flipkart.bean.SlotCatalogDetails;
+
+import java.util.ArrayList;
 
 /**
  * @author kshitij.gupta1
@@ -18,6 +21,7 @@ public interface GymOwnerDAOInterface {
 	 * @param gymAddress
 	 */
 	public void insertGymDB(Integer gymOwnerID, String gymName, String gymAddress);
+	public void insertGymOwnerDB(String gymName, String gymAddress, String IDProof);
 
 
 	/**
@@ -25,14 +29,13 @@ public interface GymOwnerDAOInterface {
 	 * @param gymOwnerID
 	 * @return whether gym owner has any gyms
 	 */
-	public boolean queryGymDB(Integer gymOwnerID);
+	public ArrayList<GymDetails> queryGymDB(Integer gymOwnerID);
 
 
 	/**
 	 * Dao method used to add a new gymOwner with all their details into the GymOwnerDB
-	 * @param gymOwner
 	 */
-	public void insertGymOwnerDB(GymOwner gymOwner);
+	public void insertGymOwnerDB(int gymOwnerID, String gymName, String gymAddress);
 
 
 	/**
@@ -65,4 +68,6 @@ public interface GymOwnerDAOInterface {
 	 * @return Displays profile details of the gym owner
 	 */
 	public void queryGymOwnerDB(Integer gymOwnerID);
+
+	public void insertGymOwnerDB(Integer gymOwnerID, String gymName, String gymAddress);
 }

@@ -31,6 +31,5 @@ public interface UserServiceInterface {
 	 * Method to register a GymOwner
 	 * @param gymOwner GymOwner to be registered
 	 */
-	public void registerGymOwner(GymOwner gymOwner);
 
 }

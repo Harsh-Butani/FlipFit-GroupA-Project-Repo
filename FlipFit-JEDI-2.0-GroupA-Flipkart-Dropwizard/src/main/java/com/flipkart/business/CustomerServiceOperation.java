@@ -3,10 +3,14 @@ package com.flipkart.business;
  * @author kshitij.gupta1
  */
 
+import com.flipkart.bean.BookingList;
+import com.flipkart.bean.GymDetails;
 import com.flipkart.dao.CustomerDAOImplementation;
 import com.flipkart.dao.CustomerDAOInterface;
 import com.flipkart.exception.SlotFullException;
 import com.flipkart.exception.SlotNotBookedException;
+
+import java.util.ArrayList;
 
 
 public class CustomerServiceOperation implements CustomerServiceInterface{
@@ -17,7 +21,7 @@ public class CustomerServiceOperation implements CustomerServiceInterface{
 	}
 
 	@Override
-	public boolean viewGyms() { // Used to view all registered gyms
+	public ArrayList<GymDetails> viewGyms() { // Used to view all registered gyms
 		return dao.queryAllGymDB();
 	}
 
@@ -63,7 +67,7 @@ public class CustomerServiceOperation implements CustomerServiceInterface{
 	}
 
 	@Override
-	public boolean viewAllBookings(Integer userID) { // Used to view bookings of the user whose user ID is passed
+	public ArrayList<BookingList> viewAllBookings(Integer userID) { // Used to view bookings of the user whose user ID is passed
 		return dao.queryBookingListDB(userID);
 	}
 

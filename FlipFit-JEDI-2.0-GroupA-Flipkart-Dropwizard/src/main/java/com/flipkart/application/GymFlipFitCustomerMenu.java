@@ -74,7 +74,7 @@ public class GymFlipFitCustomerMenu {
 			int option = in.nextInt();
 			switch(option) {
 				case 1:
-					if(!customer.viewGyms()) {
+					if(customer.viewGyms() == null) {
 						System.out.println("No gyms currently available");
 					}
 					break;
@@ -106,7 +106,7 @@ public class GymFlipFitCustomerMenu {
 					}
 					break;
 				case 4:
-					if(!customer.viewAllBookings(UserID)) {
+					if(customer.viewAllBookings(UserID) == null) {
 						System.out.println("You have no bookings");
 					}
 					break;

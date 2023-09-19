@@ -21,6 +21,7 @@ com/flipkart/dao/UserDAOInterface.class
 com/flipkart/bean/SlotCatalogDetails.class
 com/flipkart/business/UserServiceOperation.class
 com/flipkart/business/UserServiceInterface.class
+com/flipkart/controller/GymOwnerController.class
 com/flipkart/business/GymOwnerServiceInterface.class
 com/flipkart/validator/UserValidation.class
 com/flipkart/dao/CustomerDAOInterface.class
@@ -39,6 +40,7 @@ com/flipkart/utils/DatabaseConnector.class
 com/flipkart/exception/SlotNotBookedException.class
 com/flipkart/business/GymServiceInterface.class
 com/flipkart/business/VerificationServiceOperation.class
+com/flipkart/controller/CustomerController.class
 com/flipkart/dao/CustomerDAOImplementation.class
 com/flipkart/exception/SlotFullException.class
 com/flipkart/bean/GymOwner.class
